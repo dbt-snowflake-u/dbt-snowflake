@@ -8,7 +8,6 @@
 
 {{ config(materialized='table') }}
 
--- Replace the query below with the one selecting from BOOKINGS_1
-select *
-from BOOKINGS_1
---
+SELECT HOTEL, SUM(COST) AS total_revenue
+FROM BOOKINGS_1
+GROUP BY HOTEL

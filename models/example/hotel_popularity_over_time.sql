@@ -1,0 +1,5 @@
+{{ config(materialized='table') }}
+SELECT HOTEL, BOOKING_DATE, COUNT(*) AS daily_booking_count
+FROM BOOKINGS_1
+GROUP BY HOTEL, BOOKING_DATE
+ORDER BY HOTEL, BOOKING_DATE
