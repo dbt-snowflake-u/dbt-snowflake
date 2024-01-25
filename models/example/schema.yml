@@ -84,3 +84,33 @@ models:
         description: "The cost of the booking"
       - name: frequency
         description: "The frequency of each cost value among the bookings"
+  
+  - name: dim_hotel
+    description: "A dimension table for hotel attributes."
+    columns:
+      - name: HotelID
+        description: "The primary key for the hotel dimension."
+        tests:
+          - unique
+          - not_null
+      - name: HotelName
+        description: "The name of the hotel."
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_table_for_bookings
+    description: "A fact table for bookings."
+    columns:
+      - name: BOOKING_REFERENCE,
+      - name: Hotel,
+      - name: BOOKING_DATE,
+      - name: Cost
+        description: "The cost of the booking."
+        tests:
+          - not_null
+
+  - name: hotel_dimension
+    description: "A dimension table for hotel."
+    columns:
+      - name: HotelID
